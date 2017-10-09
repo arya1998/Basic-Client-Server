@@ -2,14 +2,16 @@ import socket
 import sys
 import os
 
-server_address = ('127.0.0.1',5003)
-client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server_address = ('127.0.0.1', 5003)
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(server_address)
-flag=0
+flag = 0
+
+
 def wordcount(str):
-   words = str.split(" ")
-   num_word = len(words)
-   return num_word
+    words = str.split(" ")
+    num_word = len(words)
+    return num_word
 
 try:
    while True:
@@ -46,7 +48,7 @@ try:
                   print 'ukuran :' + size
                   if int(size)==len(header[1]):
                      break
-            with open('download/' + nama, 'wb') as f:
+            with open('downloads/' + nama, 'wb') as f:
                f.write(header[1])
             print "terima Selesai"
             # file.close()
@@ -56,5 +58,5 @@ try:
          print 'Yang ada Masukan Kurang'
 
 except KeyboardInterrupt:
-   client_socket.close()
-   sys.exit(0)
+    client_socket.close()
+    sys.exit(0)
